@@ -1,5 +1,6 @@
 <?php
 include_once ('simple_html_dom.php');
+ini_set('user_agent', 'My-Application/2.5');
 
 // MeGekko price
 $videokaartmg = file_get_html('https://www.megekko.nl/product/1963/309339/Nvidia-Videokaarten/MSI-GeForce-RTX-3060-Ti-GAMING-Z-TRIO-8G-LHR-Videokaart');
@@ -14,13 +15,6 @@ $videokaartan = file_get_html('https://www.alternate.nl/MSI/GeForce-RTX-3060-Ti-
 $videokaartalternate = $videokaartan->find('div [class="col-12 col-md-auto"]',0);
 
 $vkanprijs = $videokaartalternate->find('div class="price"');
-
-// Informatique price
-$videokaartim = file_get_html('https://www.informatique.nl/212462/msi-geforce-rtx-3060-ti-gaming-z-trio.html');
-
-$videokaartinformatique = $videokaartim->find('div id="price"',0);
-
-$vkimprijs = $videokaartinformatique->find('[class="verkoopprijs"]');
 
 // Azerty price
 $videokaartaz = file_get_html('https://azerty.nl/product/msi/4574776/geforce-rtx-3060-ti-gaming-z-trio-lhr-videokaart-8-gb-gddr6');
@@ -50,16 +44,14 @@ $vkazprijs = $videokaartazerty->find('span');
             <th scope="col">My wishlist</th>
             <th scope="col"><a href="https://www.megekko.nl/">MeGekko</a></th>
             <th scope="col"><a href="https://www.alternate.nl/">Alternate</a></th>
-            <th scope="col"><a href="https://www.informatique.nl/">Informatique</a></th>
             <th scope="col"><a href="https://www.azerty.nl/">Azerty</a></th>
         </tr>
 </thead>
 <tbody>
         <tr>
-            <th scope="row"><a href="https://www.google.com/search?q=MSI+GeForce+RTX+3060+Ti+GAMING+Z+TRIO+8G+LHR+Videokaart&oq=MSI+GeForce+RTX+3060+Ti+GAMING+Z+TRIO+8G+LHR+Videokaart&aqs=chrome..69i57j69i60l3.291j0j1&sourceid=chrome&ie=UTF-8">Videokaart</a></th>
+            <th scope="row">Videokaart</th>
             <th><?php echo $vkmgprijs[0] ?></th>
             <th><?php echo $vkanprijs[0] ?></th>
-            <th><?php echo $vkimprijs[0] ?></th>
             <th><?php echo $vkazprijs[0] ?></th>
         </tr>
  
